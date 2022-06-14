@@ -46,7 +46,7 @@ function calculateMonthlyPayment(currentValues) {
   let periodicRate = (rate / 12) / 100
   let totalPayments = years * 12  
 
-  let monthlyPayment = ( amount * periodicRate ) / ( 1 - ( ( 1 + periodicRate) ** ( totalPayments * -1 ) ) )
+  let monthlyPayment = (( amount * periodicRate ) / ( 1 - ( ( 1 + periodicRate) ** ( totalPayments * -1 ) ) )).toFixed(2)
   
   updateMonthly(monthlyPayment)
 }
@@ -54,5 +54,5 @@ function calculateMonthlyPayment(currentValues) {
 // Given a string representing the monthly payment value,
 // update the UI to show the value.
 function updateMonthly(monthlyPayment) {
-  document.getElementById('monthly-payment').innerText = `$${monthlyPayment.toFixed(2)}`
+  document.getElementById('monthly-payment').innerText = `$${monthlyPayment}`
 }
